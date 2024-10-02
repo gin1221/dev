@@ -1,0 +1,222 @@
+
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column; /* Đổi chiều navbar thành dọc */
+      align-items: center; /* Căn giữa nội dung */
+  }
+  .navbar-nav {
+      text-align: center; /* Căn giữa các liên kết */
+  }
+  .navbar-nav .nav-item {
+      margin-bottom: 10px; /* Thêm khoảng cách giữa các mục */
+  }
+  .navbar-nav .btn {
+      margin-top: 10px; /* Thêm khoảng cách cho nút Zalo */
+  }
+}
+
+/* Responsive cho carousel */
+@media (max-width: 768px) {
+  #home_slider {
+      height: 500px; /* Giảm chiều cao của carousel */
+  }
+  .carousel-item {
+      background-size: cover; /* Đảm bảo hình ảnh được điều chỉnh để vừa khít */
+      background-position: center; /* Căn giữa hình ảnh */
+  }
+}
+/* ######### */
+#portfolio .portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cột */
+  grid-gap: 20px; /* Khoảng cách giữa các mục */
+}
+
+#portfolio .portfolio-item {
+  background-color: #fff; /* Màu nền cho mục */
+  border-radius: 8px; /* Bo góc nhẹ */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 15px; /* Thêm khoảng cách nội bộ */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+#portfolio .portfolio-item:hover {
+  transform: scale(1.05); /* Phóng to khi hover */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng khi hover */
+}
+
+#portfolio .portfolio-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px; /* Bo góc cho hình ảnh */
+}
+
+#portfolio .portfolio-item .title {
+  font-size: 20px; /* Kích thước phông chữ lớn hơn */
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+}
+
+#portfolio .portfolio-item .more a {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#portfolio .portfolio-item .more a:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+  #portfolio .portfolio-grid {
+      grid-template-columns: 1fr; /* Chuyển về 1 cột trên màn hình nhỏ */
+  }
+}
+/* ######### */
+#story {
+  background-color: #f9f9f9; /* Màu nền sáng cho phần story */
+  padding: 40px 20px; /* Thêm khoảng cách nội bộ */
+  border-radius: 8px; /* Bo góc cho section */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+#story .kc-elm.kc-animated {
+  margin-bottom: 30px; /* Khoảng cách giữa tiêu đề và slider */
+}
+
+#story .vnt_editor p {
+  font-size: 18px; /* Kích thước phông chữ lớn hơn */
+  line-height: 1.6; /* Tăng khoảng cách dòng */
+  color: #333; /* Màu chữ tối hơn */
+  max-width: 800px; /* Giới hạn chiều rộng của văn bản */
+  margin: 0 auto; /* Căn giữa văn bản */
+}
+
+.slider_story {
+  position: relative; /* Đặt vị trí cho slider */
+}
+
+.slider_story .slick-slide {
+  transition: transform 0.3s ease; /* Hiệu ứng chuyển tiếp cho slider */
+}
+
+.slider_story .slick-slide img {
+  width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ không gian */
+  height: auto; /* Giữ tỉ lệ của hình ảnh */
+  border-radius: 8px; /* Bo góc cho hình ảnh */
+}
+
+.slick-dots {
+  bottom: -30px; /* Đưa điểm điều hướng xuống dưới */
+}
+
+.slick-dots li button:before {
+  font-size: 12px; /* Kích thước điểm điều hướng */
+  color: #007bff; /* Màu điểm điều hướng */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #0056b3; /* Màu điểm điều hướng khi đang hoạt động */
+}
+
+@media (max-width: 768px) {
+  #story {
+      padding: 20px; /* Giảm khoảng cách nội bộ cho màn hình nhỏ */
+  }
+
+  #story .vnt_editor p {
+      font-size: 16px; /* Kích thước phông chữ nhỏ hơn */
+  }
+}
+/* ######3 */
+/* Tăng cường kiểu dáng cho tiêu đề thể loại */
+.slider_story h5 {
+  font-size: 1.5rem; /* Kích thước chữ lớn hơn */
+  font-weight: bold; /* Chữ đậm */
+  color: #333; /* Màu chữ tối */
+  margin: 0; /* Bỏ margin */
+}
+
+/* Định dạng cho hàng và cột trong slider */
+.slider_story .slick_item {
+  padding: 15px; /* Khoảng cách giữa các slide */
+  border: 1px solid #e0e0e0; /* Viền xung quanh */
+  border-radius: 8px; /* Bo góc */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+  transition: transform 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+/* Hiệu ứng hover cho các slide */
+.slider_story .slick_item:hover {
+  transform: translateY(-5px); /* Nâng lên khi hover */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Tăng độ bóng khi hover */
+}
+
+/* Định dạng cho hình ảnh */
+.slider_story .thumb {
+  overflow: hidden; /* Ẩn phần thừa của hình ảnh */
+  border-radius: 8px; /* Bo góc cho hình ảnh */
+}
+
+/* Đảm bảo hình ảnh có kích thước phù hợp */
+.slider_story .thumb img {
+  transition: transform 0.5s ease; /* Hiệu ứng khi hình ảnh hover */
+}
+
+/* Hiệu ứng hover cho hình ảnh */
+.slider_story .thumb:hover img {
+  transform: scale(1.05); /* Phóng to hình ảnh khi hover */
+}
+
+/* Định dạng cho các điểm chỉ dẫn (dots) của slider */
+.slick-dots li button:before {
+  font-size: 12px; /* Kích thước điểm chỉ dẫn */
+  color: #ccc; /* Màu sắc điểm chỉ dẫn */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #007bff; /* Màu sắc cho điểm chỉ dẫn đang hoạt động */
+}
+
+/* ####### */
+/* Đảm bảo các hình ảnh trong slider là responsive */
+.thumb img {
+  width: 100%; /* Chiếm 100% chiều rộng của cột */
+  height: auto; /* Giữ tỷ lệ khung hình */
+}
+
+/* Điều chỉnh tiêu đề cho từng mục */
+h5 {
+  margin-bottom: 20px; /* Thêm khoảng cách giữa tiêu đề và hình ảnh */
+}
+
+/* Responsive cho phần story */
+
+
+@media (max-width: 768px) {
+  #home_slider .carousel-item {
+      height: 300px; /* Chiều cao cho slider trên thiết bị di động */
+  }
+
+  .carousel-caption {
+      bottom: 20px; /* Đưa caption xuống dưới một chút cho dễ nhìn */
+  }
+
+  .carousel-caption h5 {
+      font-size: 1.2rem; /* Thay đổi kích thước font cho caption trên thiết bị nhỏ */
+  }
+}
+.navbar-nav .nav-link:hover {
+  color:yellow; /* Change this color to your desired hover color */
+  text-decoration: underline; /* Optional: add underline on hover */
+}
