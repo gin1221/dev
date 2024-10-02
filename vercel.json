@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/static/(.*)",
-            "dest": "/staticfiles/$1"  // Đảm bảo trỏ đến thư mục chứa tệp tĩnh đã thu thập
+            "dest": "/staticfiles/$1" 
         },
         {
             "src": "/(.*)",
