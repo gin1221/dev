@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiSu Studio</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">  </head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <section class="container-fluid">
+    <!-- Header Menu -->
+    <nav id="header_menu" class="navbar navbar-expand-lg navbar-light fixed-top transparent-navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <a href="/" title="Trang chủ">
+                    <img src="{% static 'img/logo.png' %}" alt="MiSu Studio" class="logo-img">
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">Về chúng tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/gallery">Album Ảnh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://zalo.me/0899276267" class="btn btn-outline-light">Zalo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<!-- slider-->
+<section id="home_slider" class="vnt_section desktop">
+    <!-- Bootstrap 5 Carousel -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicators (dots) -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        </div>
+
+        <!-- Carousel Inner (Slides) -->
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="d-block w-100" style="background-image: url({% static 'img/slider1.jpg' %}); height: 800px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Designed Wedding Dress</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="d-block w-100" style="background-image: url({% static 'img/slider2.jpg' %}); height: 800px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Bridal Make Up</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls (arrows) -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<style>
+    /* Ensure proper spacing and alignment */
+    .navbar {
+        display: flex; /* Flexbox for alignment */
+        justify-content: space-between; /* Space between logo and nav items */
+        align-items: center; /* Center items vertically */
+        padding-left: 0; /* Remove padding to push logo to the edge */
+        padding-right: 0; /* Remove padding for consistency */
+    }
+
+    .logo-img {
+        height: 100px; /* Set the height of the logo */
+        width: auto; /* Maintain aspect ratio */
+        margin-left: 0; /* No margin on the left */
+    }
+
+    .navbar-nav {
+        margin-left: auto; /* Push the nav items to the right */
+    }
+
+    /* Adjust padding for nav items */
+    .navbar-nav .nav-item .nav-link {
+        padding-left: 15px; /* You can adjust these values */
+        padding-right: 15px; /* You can adjust these values */
+        margin-left: 2px;
+        font-size: 30px;
+        color: white; /* Change text color */
+    }
+
+    /* Custom spacing for Zalo button */
+    .navbar-nav .btn-outline-light {
+        margin-left: 5px; /* Adjust if necessary */
+    }
+    .navbar-nav .nav-item .nav-link:hover {
+        color: yellowgreen; }
+    
+</style>
+
+    <h1 class="text-center mt-5">{{ folder_name | title }} Concept</h1>
+
+    <div class="container mt-5">
+        <div class="row">
+            {% for image in images %}
+                <div class="col-md-3">
+                    <div class="card mb-3">
+                        <img src="{% static 'concepts/'|add:folder_name|add:'/'|add:image %}" class="card-img-top img-thumbnail" alt="{{ image }}" data-bs-toggle="modal" data-bs-target="#imageModal{{ forloop.counter }}">
+                    </div>
+                </div>
+    
+                <!-- Modal for full screen view -->
+                <div class="modal fade" id="imageModal{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <img src="{% static 'concepts/'|add:folder_name|add:'/'|add:image %}" class="img-fluid" alt="{{ image }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No images found in this concept.</p>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <style>
+        .card-img-top {
+            height: auto;
+            max-height: 250px;
+            width: 100%;
+            object-fit: contain; /* Adjust this to cover or fill as needed */
+            border-radius: 10px;
+        }
+    
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+
+        }
+    
+        .card:hover {
+            transform: scale(1.05);
+        }
+    
+        .modal-body img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    
+        .row {
+            gap: 20px;
+        }
+    </style>
+    
+    
+
+  <footer>
+    <div class="footer-content">
+      <p>© 2024 MiSu Studio. Tất cả quyền được bảo lưu.</p>
+    </div>
+  </footer>
+  
+</body>
+</html>

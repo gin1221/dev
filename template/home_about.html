@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiSu Studio</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">  </head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <section class="container-fluid"></section>
+        <!-- Header Menu -->
+        <nav id="header_menu" class="navbar navbar-expand-lg navbar-light fixed-top transparent-navbar">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="logo">
+                    <a href="/" title="Trang chủ">
+                        <img src="{% static 'img/logo.png' %}" alt="MiSu Studio" class="logo-img">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">Về chúng tôi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/gallery">Album Ảnh</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://zalo.me/0899276267" class="btn btn-outline-light">Zalo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    
+    <!-- slider-->
+    <section id="home_slider" class="vnt_section desktop">
+        <!-- Bootstrap 5 Carousel -->
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators (dots) -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+    
+            <!-- Carousel Inner (Slides) -->
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="d-block w-100" style="background-image: url({% static 'img/slider1.jpg' %}); height: 800px;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Designed Wedding Dress</h5>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="d-block w-100" style="background-image: url({% static 'img/slider2.jpg' %}); height: 800px;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Bridal Make Up</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Carousel Controls (arrows) -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    
+    <style>
+        /* Ensure proper spacing and alignment */
+        .navbar {
+            display: flex; /* Flexbox for alignment */
+            justify-content: space-between; /* Space between logo and nav items */
+            align-items: center; /* Center items vertically */
+            padding-left: 0; /* Remove padding to push logo to the edge */
+            padding-right: 0; /* Remove padding for consistency */
+        }
+    
+        .logo-img {
+            height: 100px; /* Set the height of the logo */
+            width: auto; /* Maintain aspect ratio */
+            margin-left: 0; /* No margin on the left */
+        }
+    
+        .navbar-nav {
+            margin-left: auto; /* Push the nav items to the right */
+        }
+    
+        /* Adjust padding for nav items */
+        .navbar-nav .nav-item .nav-link {
+            padding-left: 15px; /* You can adjust these values */
+            padding-right: 15px; /* You can adjust these values */
+            margin-left: 2px;
+            font-size: 30px;
+            color: white; /* Change text color */
+        }
+    
+        /* Custom spacing for Zalo button */
+        .navbar-nav .btn-outline-light {
+            margin-left: 5px; /* Adjust if necessary */
+        }
+        .navbar-nav .nav-item .nav-link:hover {
+        color: yellowgreen; /* Change to a lighter color on hover */
+    }
+    </style>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="content-section">
+                    <p><strong>Misu studio</strong> là thương hiệu chụp ảnh cưới uy tín hàng đầu tại Đà Nẵng, <strong>Misu studio</strong> đã xây dựng được một đội ngũ ekip trẻ giàu kinh nghiệm, năng động, nhiệt tình, cùng chung sở thích và niềm đam mê bất tận với ngành cưới, ưa thích khám phá, tìm tòi những cái mới để mang đến cho khách hàng những trải nghiệm tuyệt vời nhất.</p>
+                    <p>Với sự đầu tư tổng thể cho Store để phục vụ khách hàng tốt nhất:</p>
+                    <ul>
+                        <li>Địa chỉ ở vị trí đắc địa, trung tâm dễ tìm</li>
+                        <li>Luôn theo sát nhu cầu của khách hàng và xu hướng phong cách</li>
+                        <li>Váy Veston cưới cập nhật mới</li>
+                        <li>Đầy đủ gói hợp lý cho mọi nhu cầu</li>
+                    </ul>
+                    <p>Ưu đãi duy nhất tại <strong>Misu studio</strong> dành cho khách ở nhiều nơi đến Đà Nẵng chụp ảnh cưới:</p>
+                    <ul>
+                        <li>Tặng Homestay nghỉ ngơi trong 2 ngày</li>
+                        <li>Hỗ trợ đón sân bay, nhà xe, nhà ga</li>
+                        <li>Gói chụp bao gồm tất cả chi phí</li>
+                    </ul>
+                    <p>Trang điểm makeup bởi nhân viên chuyên nghiệp nhiệt tình, phong cách luôn cập nhật mới hợp xu hướng, phù hợp từng khuôn mặt cô dâu và chú rể, và phù hợp với concept của từng cặp đôi.</p>
+                    <p><strong>THÔNG TIN LIÊN HỆ:</strong></p>
+                    <p><strong>Misu studio | Một lần lưu giữ - Trọn đời khắc ghi</strong><br><strong>Địa chỉ:</strong> 31 Chu Văn An, Bình Thuận, Hải Châu, Đà Nẵng<br><strong>Hotline:</strong> 0899 276 267</p>
+                    <p><strong>CSKH:</strong> 0974 236 776 & 0942 781 979</p>
+                    <p><strong>Email:</strong> Suu.infodn@gmail.com</p>
+                    <p><strong>Fanpage:</strong> <a href="https://www.facebook.com/suuweddingdanang" target="_blank" rel="noopener">Suu Wedding - Chụp Ảnh Cưới Đà Nẵng</a></p>
+                </div>
+            </div>
+    
+            <div class="col-md-3">
+                <div class="text-center">
+                    <img src=" {% static 'img/logo.png' %}" class="img-fluid" alt="Misu Studio Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom styles for better formatting -->
+    <style>
+        .content-section {
+            padding: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .content-section ul {
+            padding-left: 20px;
+        }
+    
+        .content-section ul li {
+            margin-bottom: 10px;
+        }
+    
+        .text-center img {
+            max-width: 300px;
+            border-radius: 8px;
+        }
+    </style>
+     <section id="main_footer" class="container my-5"></section>
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>Misu Studio</h2>
+                <p>Địa Chỉ: 31 Chu Văn An, TP. Đà Nẵng<br />
+                   Email: <a href="mailto:Suu.infodn@gmail.com">Suu.infodn@gmail.com</a><br />
+                   Điện thoại: <a href="tel:0899276267">0899276267</a></p>
+            </div>
+    
+            <div class="col-sm-4 text-center">
+                <img class="thumb_img" src="https://misustudio.vn/wp-content/uploads/2023/02/logo-misu.png" alt="">
+                <div class="my-3">
+                    <a href="https://www.facebook.com/MisuStudioChupAnhGiaDinhVaEmBeDaNang/" class="btn btn-social-icon btn-facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCkfQDLCk_0o0I-hf4KH_M8g" class="btn btn-social-icon btn-youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@chupanhgiadinh" class="btn btn-social-icon btn-tiktok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+                <p>
+                    <i class="icon-envelope"></i> <span>Suu.infodn@gmail.com</span>
+                </p>
+            </div>
+    
+            <div class="col-sm-4 text-center">
+                <div class="fb-page" 
+                     data-href="https://www.facebook.com/MisuStudioChupAnhGiaDinhVaEmBeDaNang/" 
+                     data-tabs="" 
+                     data-width="" 
+                     data-height="" 
+                     data-small-header="false" 
+                     data-adapt-container-width="true" 
+                     data-hide-cover="false" 
+                     data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/MisuStudioChupAnhGiaDinhVaEmBeDaNang/" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/MisuStudioChupAnhGiaDinhVaEmBeDaNang/">Suu Wedding - Chụp Ảnh Cưới Đà Nẵng</a>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="footer_copyright" class="text-center py-4">
+        <p>© 2023 Copyright Misu Studio – Design by<br />misustudio.vn</p>
+    </section>
+    
+    <section id="footer_sticky" class="bg-light text-center py-2 fixed-bottom">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="mx-2">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:0899276267" class="vnt_link">0899276267</a>
+            </div>
+            <div class="mx-2">
+                <img src="https://misustudio.vn/wp-content/uploads/2023/02/zalo-icon.png" alt="Zalo" style="max-height: 34px;">
+                <a href="https://zalo.me/0974236776" class="vnt_link">Zalo</a>
+            </div>
+            <div class="mx-2">
+                <img src="https://misustudio.vn/wp-content/uploads/2023/02/Facebook_Messenger_logo_2018.svg_.png" alt="Messenger" style="max-height: 34px;">
+                <a href="https://m.me/MisuStudioChupAnhGiaDinhVaEmBeDaNang" class="vnt_link">Messenger</a>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

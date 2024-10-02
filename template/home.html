@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiSu Studio</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">  </head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <section class="container-fluid">
+        <!-- Header Menu -->
+        <nav id="header_menu" class="navbar navbar-expand-lg navbar-light fixed-top transparent-navbar">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="logo">
+                    <a href="/" title="Trang chủ">
+                        <img src="{% static 'img/logo.png' %}" alt="MiSu Studio" class="logo-img">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">Về chúng tôi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/gallery">Album Ảnh</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://zalo.me/0899276267" class="btn btn-outline-light">Zalo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    
+    <!-- slider-->
+    <section id="home_slider" class="vnt_section desktop">
+        <!-- Bootstrap 5 Carousel -->
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators (dots) -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+    
+            <!-- Carousel Inner (Slides) -->
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="d-block w-100" style="background-image: url({% static 'img/slider1.jpg' %}); height: 800px;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Designed Wedding Dress</h5>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="d-block w-100" style="background-image: url({% static 'img/slider2.jpg' %}); height: 800px;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Bridal Make Up</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Carousel Controls (arrows) -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    
+    <style>
+        /* Ensure proper spacing and alignment */
+        .navbar {
+            display: flex; /* Flexbox for alignment */
+            justify-content: space-between; /* Space between logo and nav items */
+            align-items: center; /* Center items vertically */
+            padding-left: 0; /* Remove padding to push logo to the edge */
+            padding-right: 0; /* Remove padding for consistency */
+        }
+    
+        .logo-img {
+            height: 100px; /* Set the height of the logo */
+            width: auto; /* Maintain aspect ratio */
+            margin-left: 0; /* No margin on the left */
+        }
+    
+        .navbar-nav {
+            margin-left: auto; /* Push the nav items to the right */
+        }
+    
+        /* Adjust padding for nav items */
+        .navbar-nav .nav-item .nav-link {
+            padding-left: 15px; /* You can adjust these values */
+            padding-right: 15px; /* You can adjust these values */
+            margin-left: 2px;
+            font-size: 30px;
+            color: white; /* Change text color */
+        }
+    
+        /* Custom spacing for Zalo button */
+        .navbar-nav .btn-outline-light {
+            margin-left: 5px; /* Adjust if necessary */
+        }
+        .navbar-nav .nav-item .nav-link:hover {
+            color: yellowgreen; }
+        /* Custom spacing for Zalo button */
+        .navbar-nav .btn-outline-light {
+        margin-left: 5px; /* Adjust if necessary */
+        }
+
+        /* Move Zalo button to the right */
+        .btn-outline-light {
+        margin-left: auto; /* Push the button to the right */
+    }
+        
+    </style>
+    
+      <!-- porfoliio -->
+<section id="portfolio" class="vnt_section container-fluid">
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <h2 class="type">CÁC BỘ ẢNH CƯỚI</h2>
+            <div class="sub">Các bộ ảnh cưới nổi bật được thực hiện bởi Suu Wedding</div>
+        </div>
+
+        <div class="container gallery-container mt-5">
+            {% if concepts %}
+                <div class="row">
+                    {% for concept in concepts %}
+                        <div class="col-md-6 mb-6">
+                            <div class="portfolio-item" data-title="{{ concept.name }}">
+                                <a class="d-block" href="{% url 'concept_detail' concept.folder_name %}" title="{{ concept.name }}">
+                                    <img class="img-fluid" src="{% static 'concepts/' %}{{ concept.folder_name }}/1.jpg" alt="{{ concept.name }} Thumbnail">
+                                </a>
+                                <div class="post_cat"><a class="cat_item" href="#" alt="{{ concept.category }}">{{ concept.category }}</a></div>
+                                <div class="title"><a href="{% url 'concept_detail' concept.folder_name %}" title="{{ concept.name }}">{{ concept.name }}</a></div>
+                                <div class="more"><a href="{% url 'concept_detail' concept.folder_name %}" title="{{ concept.name }} " style="display: inline-block; margin: 0 auto;">Xem chi tiết</a></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No concepts available at the moment.</p>
+            {% endif %}
+        </div>
+        
+
+    </div>
+</section>
+
+    <!-- comment -->
+    <section id="story" class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="kc-elm kc-css-781841 kc-animated kc-animate-eff-fadeInUp vnt_editor">
+                    <p>Cuộc sống là tập hợp những khoảnh khắc, Suu Wedding hiểu rằng, thời khắc bạn nắm tay người yêu thương để mở ra trang mới của cuộc đời sẽ là cột mốc mãi không quên. Hãy để chúng tôi giúp bạn lưu giữ lại khoảnh khắc đó theo cách đặc biệt nhất, tự nhiên, tròn đầy nhất, nhé!</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-12">
+                <div class="kc-elm kc-css-667403 kc-animated kc-animate-eff-zoomIn vnt_slick vw_content slider_story" data-slick='{"rows": 0, "slidesToShow": 1, "slidesToScroll": 1, "infinite": true, "arrows": false, "dots": true, "autoplay": true, "autoplaySpeed": 5000, "fade": true}'>
+                    
+                    <!-- Mỗi mục slider -->
+                    <div class="slick_item" data-title="Pre - wedding" data-icon="fa-star">
+                        <div class="d-flex flex-column align-items-center">
+                            <h5>Pre - wedding</h5>
+                            <div class="thumb mt-2">
+                                <img decoding="async" class="img-fluid" src={% static 'img/slider1.jpg' %} alt="Pre - wedding">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="slick_item" data-title="Ceremony" data-icon="fa-star">
+                        <div class="d-flex flex-column align-items-center">
+                            <h5>Ceremony</h5>
+                            <div class="thumb mt-2">
+                                <img decoding="async" class="img-fluid" src="https://misustudio.vn/wp-content/uploads/2023/02/story-0002.jpg" alt="Ceremony">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="slick_item" data-title="Model" data-icon="fa-star">
+                        <div class="d-flex flex-column align-items-center">
+                            <h5>Model</h5>
+                            <div class="thumb mt-2">
+                                <img decoding="async" class="img-fluid" src="https://misustudio.vn/wp-content/uploads/2023/02/story-0003.jpg" alt="Model">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="slick_item" data-title="Family" data-icon="fa-star">
+                        <div class="d-flex flex-column align-items-center">
+                            <h5>Family</h5>
+                            <div class="thumb mt-2">
+                                <img decoding="async" class="img-fluid" src="https://misustudio.vn/wp-content/uploads/2023/02/story-0004.jpg" alt="Family">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="slick_item" data-title="Baby" data-icon="fa-star">
+                        <div class="d-flex flex-column align-items-center">
+                            <h5>Baby</h5>
+                            <div class="thumb mt-2">
+                                <img decoding="async" class="img-fluid" src="https://misustudio.vn/wp-content/uploads/2023/02/story-0005.jpg" alt="Baby">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="slick_item" data-title="Wedding dress" data-icon="fa-star">
+                        <div class="d-flex flex-column align-items-center">
+                            <h5>Wedding dress</h5>
+                            <div class="thumb mt-2">
+                                <img decoding="async" class="img-fluid" src="https://misustudio.vn/wp-content/uploads/2023/02/story-0006.jpg" alt="Wedding dress">
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- number    -->
+    <section id="number" class="vnt_section text-center mt-5">
+        <div class="container">
+            <div class="mb-4">
+                <h2 class="type">Những con số ấn tượng</h2>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="vnt_title">
+                        <div class="sub">Năm</div>
+                        <div class="type counterup">9</div>
+                    </div>
+                </div>
+    
+                <div class="col-md-3 mb-4">
+                    <div class="vnt_title">
+                        <div class="sub">Album</div>
+                        <div class="type counterup">7128</div>
+                    </div>
+                </div>
+    
+                <div class="col-md-3 mb-4">
+                    <div class="vnt_title">
+                        <div class="sub">Lễ Cưới</div>
+                        <div class="type counterup">176</div>
+                    </div>
+                </div>
+    
+                <div class="col-md-3 mb-4">
+                    <div class="vnt_title">
+                        <div class="sub">Gia đình</div>
+                        <div class="type counterup">1040</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- text -->
+    <section id="testimonials" class="vnt_section text-center mt_5">
+        <div class="container mt-5">
+            <div class="mb-4">
+                <h2 class="type">Love is SuuWedding</h2>
+            </div>
+    
+            <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <!-- Item 1 -->
+                            <div class="col-md-6">
+                                <div class="d-flex flex-column align-items-center">
+                                    <div class="thumb mb-3">
+                                        <img decoding="async" class="thumb_img rounded-circle" src="https://misustudio.vn/wp-content/uploads/2023/02/story-0001.jpg" alt="Client Photo">
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="type fw-bold">Hoàng Tuấn - Diệu Linh</div>
+                                        <div class="sub text-muted">October 12, 2019</div>
+                                        <div class="cont">
+                                            <p class="text-muted">Cảm ơn các anh chị ekip SuuWedding đã giúp vợ chồng em lưu giữ khoảnh khắc đáng nhớ trong cuộc đời. Ekip tận tâm, sản phẩm chất lượng. Chúc mọi người một năm thật nhiều sức khoẻ để ghi lại vô vàn khoảnh khắc tuyệt vời cho các cặp đôi khác ạ ^^ một lần nữa, cảm ơn SuuWedding nhiều ạ.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="col-md-6">
+                                <div class="d-flex flex-column align-items-center">
+                                    <div class="thumb mb-3">
+                                        <img decoding="async" class="thumb_img rounded-circle" src="{% static 'img/slider1.jpg' %}" alt="Client Photo">
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="type fw-bold">Nguyễn Văn A - Trần Thị B</div>
+                                        <div class="sub text-muted">January 15, 2020</div>
+                                        <div class="cont">
+                                            <p class="text-muted">Đội ngũ SuuWedding thật tuyệt vời! Họ đã ghi lại những khoảnh khắc tuyệt đẹp trong đám cưới của chúng tôi. Chúng tôi rất hài lòng với chất lượng sản phẩm.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <!-- Item 3 -->
+                            <div class="col-md-6">
+                                <div class="d-flex flex-column align-items-center">
+                                    <div class="thumb mb-3">
+                                        <img decoding="async" class="thumb_img rounded-circle" src="https://misustudio.vn/wp-content/uploads/2023/02/story-0001.jpg" alt="Client Photo">
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="type fw-bold">Lê Văn C - Phạm Thị D</div>
+                                        <div class="sub text-muted">March 20, 2021</div>
+                                        <div class="cont">
+                                            <p class="text-muted">SuuWedding đã giúp chúng tôi có những kỷ niệm đẹp trong ngày cưới. Tôi rất cảm kích sự chuyên nghiệp của ekip!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 4 -->
+                            <div class="col-md-6">
+                                <div class="d-flex flex-column align-items-center">
+                                    <div class="thumb mb-3">
+                                        <img decoding="async" class="thumb_img rounded-circle" src="{% static 'img/slider1.jpg' %}" alt="Client Photo">
+                                    </div>
+                                    <div class="col text-center">
+                                        <div class="type fw-bold">Trần Văn E - Hoàng Thị F</div>
+                                        <div class="sub text-muted">May 25, 2022</div>
+                                        <div class="cont">
+                                            <p class="text-muted">Cảm ơn SuuWedding đã giúp chúng tôi có những bức hình đẹp và những kỷ niệm khó quên!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Thêm các slide khác ở đây nếu cần -->
+                </div>
+    
+                <!-- <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a> -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Đừng quên bao gồm các tệp CSS và JavaScript của Bootstrap -->
+    <script>
+        jQuery(document).ready(function($) {
+            $('#testimonialCarousel').carousel({
+                interval: 5000 // Thay đổi thời gian tự động chuyển đổi giữa các slide (nếu cần)
+            });
+        });
+    </script>
+    
+    <!-- end     -->
+    <section id="contact" class="container text-center my-5">
+        <div class="mb-4">
+            <h2>WE CAN'T WAIT TO SEE YOU</h2>
+        </div>
+    
+        <div class="mb-5">
+            <div class="h5">Contact us</div>
+            <a href="#" class="btn btn-primary">Get in Touch</a>
+        </div>
+    </section>
+
+    
+    <section id="main_footer" class="container my-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>Misu Studio</h2>
+                <p>Địa Chỉ: 31 Chu Văn An, TP. Đà Nẵng<br />
+                   Email: <a href="mailto:Suu.infodn@gmail.com">Suu.infodn@gmail.com</a><br />
+                   Điện thoại: <a href="tel:0899276267">0899276267</a></p>
+            </div>
+    
+            <div class="col-sm-4 text-center">
+                <img class="thumb_img" src="https://misustudio.vn/wp-content/uploads/2023/02/logo-misu.png" alt="">
+                <div class="my-3">
+                    <a href="https://www.facebook.com/MisuStudioChupAnhGiaDinhVaEmBeDaNang/" class="btn btn-social-icon btn-facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCkfQDLCk_0o0I-hf4KH_M8g" class="btn btn-social-icon btn-youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@chupanhgiadinh" class="btn btn-social-icon btn-tiktok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+                <p>
+                    <i class="icon-envelope"></i> <span>Suu.infodn@gmail.com</span>
+                </p>
+            </div>
+    
+            <div class="col-sm-4 text-center">
+                <div class="fb-page" 
+                     data-href="https://www.facebook.com/MisuStudioChupAnhGiaDinhVaEmBeDaNang/" 
+                     data-tabs="" 
+                     data-width="" 
+                     data-height="" 
+                     data-small-header="false" 
+                     data-adapt-container-width="true" 
+                     data-hide-cover="false" 
+                     data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/MisuStudioChupAnhGiaDinhVaEmBeDaNang/" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/MisuStudioChupAnhGiaDinhVaEmBeDaNang/">Suu Wedding - Chụp Ảnh Cưới Đà Nẵng</a>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="footer_copyright" class="text-center py-4">
+        <p>© 2023 Copyright Misu Studio – Design by<br />misustudio.vn</p>
+    </section>
+    
+    <section id="footer_sticky" class="bg-light text-center py-2 fixed-bottom">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="mx-2">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:0899276267" class="vnt_link">0899276267</a>
+            </div>
+            <div class="mx-2">
+                <img src="https://misustudio.vn/wp-content/uploads/2023/02/zalo-icon.png" alt="Zalo" style="max-height: 34px;">
+                <a href="https://zalo.me/0974236776" class="vnt_link">Zalo</a>
+            </div>
+            <div class="mx-2">
+                <img src="https://misustudio.vn/wp-content/uploads/2023/02/Facebook_Messenger_logo_2018.svg_.png" alt="Messenger" style="max-height: 34px;">
+                <a href="https://m.me/MisuStudioChupAnhGiaDinhVaEmBeDaNang" class="vnt_link">Messenger</a>
+            </div>
+        </div>
+    </section>
+    
+<script>
+</script>            
+    
+      
+      
+    
+</body>
